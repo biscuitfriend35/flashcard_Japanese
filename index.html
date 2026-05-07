@@ -33,7 +33,7 @@
 <script type="text/babel">
 const { useState, useEffect } = React;
 const STORAGE_KEY = 'japanese_flashcards_standalone';
-const APP_VERSION = '2026-04-23-006'; // 이 값을 바꿀 때마다 앱이 자동 업데이트됨
+const APP_VERSION = '2026-04-23-007'; // 이 값을 바꿀 때마다 앱이 자동 업데이트됨
 const VERSION_KEY = 'japanese_flashcards_version';
 
 // 간단한 아이콘 (인라인 SVG)
@@ -548,6 +548,13 @@ function App() {
               type="text"
               value={searchQuery}
               onChange={(e) => setSearchQuery(e.target.value)}
+              onInput={(e) => setSearchQuery(e.target.value)}
+              onCompositionUpdate={(e) => setSearchQuery(e.target.value)}
+              onCompositionEnd={(e) => setSearchQuery(e.target.value)}
+              autoComplete="off"
+              autoCorrect="off"
+              autoCapitalize="off"
+              spellCheck="false"
               placeholder="한자 / 발음 / 뜻으로 검색"
               style={{ width: '100%', padding: '10px 12px 10px 36px', background: '#f9fafb', border: '1px solid #e5e7eb', borderRadius: 12, fontSize: 14, outline: 'none', boxSizing: 'border-box', fontFamily: 'inherit' }}
             />
